@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html{
+        scroll-behavior: smooth;
+    }
+
+    [x-cloak]{
+        @apply !hidden;
+    }
+}
+
+@layer components {
+    floating-label {
+        @apply relative block mt-4 shadow-md;
+    }
+    
+    floating-label input[type="text"],
+    floating-label input[type="email"],
+    floating-label input[type="search"],
+    floating-label input[type="password"] {
+        @apply w-full h-10 px-2 text-gray-100 placeholder-transparent bg-transparent border-0 border-b-4 rounded focus:outline-none focus:ring-0 focus:border-green-600;
+
+    }
+    
+    floating-label input[type="text"]:placeholder-shown ~ label,
+    floating-label input[type="email"]:placeholder-shown ~ label,
+    floating-label input[type="search"]:placeholder-shown ~ label,
+    floating-label input[type="password"]:placeholder-shown ~ label {
+        @apply text-base text-gray-100 top-2;
+    }
+    
+    floating-label input[type="text"]:focus ~ label,
+    floating-label input[type="email"]:focus ~ label,
+    floating-label input[type="search"]:focus ~ label,
+    floating-label input[type="password"]:focus ~ label {
+        @apply text-sm text-gray-100 -top-5;
+    }
+    
+    floating-label label {
+        @apply absolute w-full text-sm text-gray-100 transition-all pointer-events-none left-2 -top-5;
+    }
+    
+    floating-label ~ button {
+        @apply md:mt-4;
+    }
+}
+

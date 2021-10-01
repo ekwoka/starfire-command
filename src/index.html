@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starfire Dashboard</title>
+    <link rel="stylesheet" href="./assets/starfire.css" />
+    <script src="./assets/starfire.min.js" defer></script>
+  </head>
+  <body class="min-h-screen p-8 text-base bg-gray-900">
+    <login-card class="fixed flex flex-col block max-w-lg p-8 mx-auto -translate-y-1/2 rounded shadow-lg inset-x-4 bg-white/10 gap-y-2 top-1/2" x-data="loginCard">
+        <img class="absolute top-0 object-cover w-20 h-20 p-1 -translate-x-1/2 -translate-y-1/2 bg-gray-900 rounded-full shadow-lg left-1/2" src="./assets/starfire.jpg" alt="">
+      <floating-label class="w-full">
+        <input type="text" placeholder="username" id="username" x-model="name" :class="name.length==0 && 'border-gray-100/50'"/>
+        <label for="username">Username</label>
+      </floating-label>
+      <floating-label class="w-full">
+        <input type="password" placeholder="password" id="password" class="font-mono" x-model="password" :class="name.length==0 && 'border-gray-100/50'"/>
+        <label for="password">Password</label>
+      </floating-label>
+      <button class="px-4 py-2 text-gray-900 bg-gray-100 rounded hover:bg-green-600 disabled:!bg-gray-100/50" @click="submit" :disabled="name.length==0||password.length==0">Login</button>
+    </login-card>
+
+    
+  </body>
+</html>
