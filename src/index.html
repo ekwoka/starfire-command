@@ -8,17 +8,17 @@
     <script src="./assets/starfire.min.js" defer></script>
   </head>
   <body class="min-h-screen p-8 text-base bg-gray-900">
-    <login-card class="fixed flex flex-col block max-w-lg p-8 mx-auto -translate-y-1/2 rounded shadow-lg inset-x-4 bg-white/10 gap-y-2 top-1/2" x-data="loginCard">
+    <login-card class="fixed flex flex-col justify-end block max-w-lg p-8 mx-auto -translate-y-full rounded shadow-lg inset-x-4 bg-white/10 gap-y-2 top-1/2 min-h-[14rem]" x-data="loginCard" :class="{'pointer-events-none opacity-60':loggingIn,'min-h-[14rem]':false}">
         <img class="absolute top-0 object-cover w-20 h-20 p-1 -translate-x-1/2 -translate-y-1/2 bg-gray-900 rounded-full shadow-lg left-1/2" src="./assets/starfire.jpg" alt="">
-      <floating-label class="w-full">
-        <input type="text" placeholder="username" id="username" x-model="name" :class="name.length==0 && 'border-gray-100/50'"/>
+      <floating-label class="w-full" x-cloak>
+        <input type="text" placeholder="username" id="username" autocomplete="off" x-model="name" :class="name.length==0 && 'border-gray-100/50'"/>
         <label for="username">Username</label>
       </floating-label>
-      <floating-label class="w-full">
-        <input type="password" placeholder="password" id="password" class="font-mono" x-model="password" :class="name.length==0 && 'border-gray-100/50'"/>
+      <floating-label class="w-full" x-cloak>
+        <input type="password" placeholder="password" id="password" autocomplete="off" class="font-mono" x-model="password" :class="password.length==0 && 'border-gray-100/50'"/>
         <label for="password">Password</label>
       </floating-label>
-      <button class="px-4 py-2 text-gray-900 bg-gray-100 rounded hover:bg-green-600 disabled:!bg-gray-100/50" @click="submit" :disabled="name.length==0||password.length==0">Login</button>
+      <button class="px-4 py-2 text-gray-900 bg-gray-100 rounded hover:bg-green-600 disabled:!bg-gray-100/50" @click="submit" disabled :disabled="name.length==0||password.length==0" x-text="loggingIn?'Logging In...':'Login'"">loading...</button>
     </login-card>
 
     
