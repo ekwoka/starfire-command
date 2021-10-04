@@ -9,7 +9,8 @@
     "build:css": "tailwindcss -i ./build/tailwind.pre.css -o ./src/assets/starfire.css --jit -m --purge ./**/*.html --config ./tailwind.config.js",
     "build:js": "esbuild ./build/build.js --outfile=./src/assets/starfire.min.js --platform=browser --target=es2017 --define:ALPINE_VERSION='\"Starfire custom\"' --bundle --minify",
     "watch:css": "tailwindcss -i ./build/tailwind.pre.css -o ./src/assets/starfire.css --jit -w --purge ./**/*.html --config ./tailwind.config.js",
-    "watch:js": "esbuild ./build/build.js --outfile=./src/assets/starfire.min.js --platform=browser --target=es2017 --define:ALPINE_VERSION='\"Starfire custom\"' --bundle --watch"
+    "watch:js": "esbuild ./build/build.js --outfile=./src/assets/starfire.min.js --platform=browser --target=es2017 --define:ALPINE_VERSION='\"Starfire custom\"' --bundle --watch",
+    "watch:netlify": "netlify dev"
   },
   "author": "Eric Kwoka",
   "license": "ISC",
@@ -24,6 +25,9 @@
     "@alpinejs/intersect": "^3.4.2",
     "@ekwoka/x-ajax": "^0.1.0",
     "@ekwoka/x-router": "^0.1.0",
-    "alpinejs": "^3.4.2"
+    "alpinejs": "^3.4.2",
+    "cloud-local-storage": "^0.0.13",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^3.0.0"
   }
 }
