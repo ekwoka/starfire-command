@@ -772,18 +772,6 @@ floating-label label {
   min-height: 100vh;
 }
 
-.min-h-\[20rem\] {
-  min-height: 20rem;
-}
-
-.min-h-\[16rem\] {
-  min-height: 16rem;
-}
-
-.min-h-\[10rem\] {
-  min-height: 10rem;
-}
-
 .min-h-\[14rem\] {
   min-height: 14rem;
 }

@@ -3,9 +3,11 @@ export default function(Alpine){
         name: '',
         password: '',
         loggingIn:false,
-        submit(){
+        async submit(){
             this.loggingIn=true
-            Starfire.api('validate',{name:this.name,token:this.password})
+            let response = await Starfire.api('login',{name:this.name,password:this.password})
+            if(response.error) return console.error(response.error)
+            console.log(response)
         }
     }))
 }
