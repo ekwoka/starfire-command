@@ -23,3 +23,18 @@ export const login = {
         return ({ error: "You cannot set Users from this endpoint" })
     }
 };
+
+export const users = {
+  async get(ID){
+    let users = await cls.getItem("userAuth")
+    if(!users[ID]) return {error:'User not found'}
+    return users[ID]
+  },
+  async add(userData){
+    let users = await cls.getItem("userAuth")
+    let ID = Object.entries(users).find(([key,value])=>value.id==userData.id)?.[0] || Date.now().toString(36) + Math.random().toString(36).substr(2);
+    users[ID]=userData
+    await cls.setItem("userAuth",users)
+    return ID
+  }
+}

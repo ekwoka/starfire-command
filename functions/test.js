@@ -1,5 +1,5 @@
 import formattedReturn from './helpers/formattedReturn';
-import Starfire from './helpers/starfire';
+import * as Starfire from './helpers/starfire';
 
 export const handler = async(event) => {
     let schedule = await Starfire.schedule.get()

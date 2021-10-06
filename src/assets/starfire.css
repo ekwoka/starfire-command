@@ -764,28 +764,40 @@ floating-label label {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-20 {
   height: 5rem;
+}
+
+.h-10 {
+  height: 2.5rem;
 }
 
 .min-h-screen {
   min-height: 100vh;
 }
 
-.min-h-\[14rem\] {
-  min-height: 14rem;
+.min-h-\[8rem\] {
+  min-height: 8rem;
 }
 
 .w-20 {
   width: 5rem;
 }
 
-.w-full {
-  width: 100%;
+.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
 }
 
 .-translate-y-full {
@@ -803,16 +815,33 @@ floating-label label {
   transform: var(--tw-transform);
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-end {
   justify-content: flex-end;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .gap-y-2 {
   row-gap: 0.5rem;
+}
+
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
 }
 
 .rounded {
@@ -821,10 +850,6 @@ floating-label label {
 
 .rounded-full {
   border-radius: 9999px;
-}
-
-.border-gray-100\/50 {
-  border-color: rgba(243, 244, 246, 0.5);
 }
 
 .bg-gray-900 {
@@ -864,10 +889,6 @@ floating-label label {
   padding-bottom: 0.5rem;
 }
 
-.font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -890,6 +911,10 @@ floating-label label {
 .hover\:bg-green-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+}
+
+.hover\:bg-opacity-80:hover {
+  --tw-bg-opacity: 0.8;
 }
 
 .disabled\:\!bg-gray-100\/50:disabled {
