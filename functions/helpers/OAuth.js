@@ -3,6 +3,7 @@ import * as Starfire from "./starfire"
 
 export async function validateToken(Auth) {
   try {
+    console.log(Auth)
     let fetchData = {
       headers: {
         authorization: `${Auth.token_type} ${Auth.access_token}`
@@ -12,6 +13,7 @@ export async function validateToken(Auth) {
     let guilds = fetch("https://discord.com/api/users/@me/guilds", fetchData);
     [user, guilds] = await Promise.all([user, guilds]);
     [user, guilds] = await Promise.all([user.json(), guilds.json()]);
+    console.log(user,guilds)
     if (!validateMember(guilds))
       throw "User is not Authorized to Access this Service";
     return user;
