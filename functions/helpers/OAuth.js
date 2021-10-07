@@ -47,7 +47,6 @@ export async function validateMember(servers) {
 
 export async function fetchToken(code,host) {
   try {
-    console.log(code)
     let request = {
       method: "POST",
       body: new URLSearchParams({
@@ -62,7 +61,6 @@ export async function fetchToken(code,host) {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     };
-    console.log(request)
     let response = await fetch("https://discord.com/api/oauth2/token", request);
     return await response.json();
   } catch (e) {
