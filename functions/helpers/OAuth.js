@@ -55,7 +55,6 @@ export async function fetchToken(code) {
         client_secret: process.env.OAUTH_SECRET,
         code,
         grant_type: "authorization_code",
-        redirect_uri: `http://localhost:8888`,
         scope: "identify,guilds"
       }),
       headers: {
