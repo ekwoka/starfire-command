@@ -45,7 +45,7 @@ export async function validateMember(servers) {
   return servers.some((s) => s.id == "878466988136087602");
 }
 
-export async function fetchToken(code) {
+export async function fetchToken(code,host) {
   try {
     console.log(code)
     let request = {
@@ -55,6 +55,7 @@ export async function fetchToken(code) {
         client_secret: process.env.OAUTH_SECRET,
         code,
         grant_type: "authorization_code",
+        redirect_uri: host,
         scope: "identify,guilds"
       }),
       headers: {
