@@ -776,6 +776,10 @@ floating-label label {
   height: 2.5rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -792,8 +796,8 @@ floating-label label {
   width: 2.5rem;
 }
 
-.max-w-lg {
-  max-width: 32rem;
+.w-6 {
+  width: 1.5rem;
 }
 
 .max-w-md {
@@ -813,6 +817,23 @@ floating-label label {
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
   transform: var(--tw-transform);
+}
+
+@-webkit-keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
 }
 
 .flex-row {
@@ -906,11 +927,6 @@ floating-label label {
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.hover\:bg-green-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
 }
 
 .hover\:bg-opacity-80:hover {

@@ -7,17 +7,17 @@ const OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=8541943251
 export async function checkIdentity() {
   if (localStorage.getItem("STARFIRE_AUTH")) return checkAuth();
   let ID = await verifyCode();
-  if (ID.error) return (window.Starfire.loggedIn = false);
-  window.Starfire.loggedIn = true;
-  window.Starfire.loggingIn = false;
+  if (ID.error) return (Alpine.store('login').loggingIn = false);
+  Alpine.store('login').isLoggedIn = true;
+  Alpine.store('login').loggingIn = false;
   localStorage.setItem("STARFIRE_AUTH", ID);
 }
 
 export async function checkAuth() {
   if (await Starfire.api("verify", localStorage.getItem("STARFIRE_AUTH")))
-    return (window.Starfire.loggedIn = true);
-  window.Starfire.loggedIn = false;
-  window.Starfire.loggingIn = false;
+    return (Alpine.store('login').isLoggedIn = true);
+  Alpine.store('login').isLoggedIn = false;
+  Alpine.store('login').loggingIn = false;
   localStorage.removeItem("STARFIRE_AUTH");
 }
 

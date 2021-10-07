@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import * as Starfire from "./starfire"
 
 export async function validateToken(Auth) {
   try {
@@ -65,4 +66,10 @@ export async function fetchToken(code) {
   } catch (e) {
     return { error: e };
   }
+}
+
+export async function checkAuth(ID){
+  let user = await Starfire.users.get(ID)
+  if(user.error) return false
+  return true
 }
