@@ -24,9 +24,7 @@ export async function checkAuth() {
 export async function verifyCode() {
   let params = new URLSearchParams(window.location.search);
   const OAUTH_CODE = params.get("code");
-  console.log(OAUTH_CODE);
   if (OAUTH_CODE) return await createToken(OAUTH_CODE);
-  console.log("No OAuth Code Found");
   return {error:true}
 }
 

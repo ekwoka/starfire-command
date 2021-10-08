@@ -31,7 +31,7 @@
         :class="{'pointer-events-none opacity-60':$store.login.loggingIn,'min-h-[8rem]':false}"
       >
         <img
-          class="absolute top-0 object-cover w-20 h-20 p-1 -translate-x-1/2 -translate-y-1/2 bg-gray-900 rounded-full shadow-lg  left-1/2"
+          class="absolute top-0 object-cover w-20 h-20 p-1 -translate-x-1/2 -translate-y-1/2 bg-gray-900 rounded-full shadow-lg left-1/2"
           src="/assets/starfire.jpg"
           alt=""
         />
@@ -78,7 +78,11 @@
       </login-card>
     </template>
     <template x-if="$store.login.isLoggedIn">
-      <main>You can see this content now</main>
+      <main>
+        <template x-route="">
+          <div>Testing</div>
+        </template>
+      </main>
     </template>
   </body>
 </html>

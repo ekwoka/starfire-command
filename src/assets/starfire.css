@@ -756,16 +756,8 @@ floating-label label {
   margin-right: auto;
 }
 
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
-}
-
-.hidden {
-  display: none;
 }
 
 .h-20 {
@@ -774,10 +766,6 @@ floating-label label {
 
 .h-10 {
   height: 2.5rem;
-}
-
-.h-6 {
-  height: 1.5rem;
 }
 
 .min-h-screen {
@@ -794,10 +782,6 @@ floating-label label {
 
 .w-10 {
   width: 2.5rem;
-}
-
-.w-6 {
-  width: 1.5rem;
 }
 
 .max-w-md {
