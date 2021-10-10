@@ -17,8 +17,3 @@
   to = "/index.html"
   status = 200
 
-[[headers]]
-  for = "/index.html"
-  [headers.values]
-    Link = "</assets/starfire.css>; rel=prefetch,</assets/starfire.min.js>; rel=prefetch"
-
