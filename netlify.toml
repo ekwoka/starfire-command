@@ -18,7 +18,7 @@
   status = 200
 
 [[headers]]
-  for = "/index.html"
+  for = "/*"
   [headers.values]
-    Link = "</assets/starfire.css>; rel=prefetch,</assets/starfire.min.js>; rel=prefetch"
+    Link = "</assets/starfire.css>; rel=prefetch"
 
