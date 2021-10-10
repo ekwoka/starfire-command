@@ -94,7 +94,8 @@
     <template x-if="$store.login.isLoggedIn">
       <main>
         <template x-route="">
-          <div>Testing</div>
+          <home-page class="flex flex-col w-full gap-y-8" x-ajax="'/pages/home'">
+          </home-page>
         </template>
       </main>
     </template>

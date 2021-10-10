@@ -1,6 +1,6 @@
 import Alpine from 'alpinejs/src'
 import Plugins from './plugins.js'
-import Data from './data.js'
+import Data from './data'
 import Stores from './stores'
 import * as Starfire from './starfire.js'
 import * as OAuth from './oauth'
