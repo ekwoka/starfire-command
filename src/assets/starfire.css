@@ -760,6 +760,10 @@ floating-label label {
   margin-right: auto;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -802,6 +806,10 @@ floating-label label {
 
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-screen-lg {
+  max-width: 1024px;
 }
 
 .-translate-y-full {
@@ -904,6 +912,24 @@ floating-label label {
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
 
+.bg-gradient-to-tr {
+  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+}
+
+.from-red-500 {
+  --tw-gradient-from: #ef4444;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 68, 68, 0));
+}
+
+.to-yellow-400 {
+  --tw-gradient-to: #fbbf24;
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
 .fill-current {
   fill: currentColor;
 }
@@ -939,6 +965,16 @@ floating-label label {
   padding-bottom: 0.5rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -947,6 +983,24 @@ floating-label label {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 .text-gray-100 {
@@ -962,6 +1016,10 @@ floating-label label {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+
+.text-transparent {
+  color: transparent;
 }
 
 .opacity-60 {
