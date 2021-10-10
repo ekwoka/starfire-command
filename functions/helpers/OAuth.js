@@ -12,6 +12,7 @@ export async function validateToken(Auth) {
     let guilds = fetch("https://discord.com/api/users/@me/guilds", fetchData);
     [user, guilds] = await Promise.all([user, guilds]);
     [user, guilds] = await Promise.all([user.json(), guilds.json()]);
+    if (!Array.isArray(guilds)) throw "User Data returned no Guilds"
     if (!validateMember(guilds))
       throw "User is not Authorized to Access this Service";
     return user;

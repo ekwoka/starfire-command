@@ -1,5 +1,5 @@
 import Alpine from 'alpinejs/src'
-import Plugins from './plugins.js'
+import Plugins from './plugins'
 import Data from './data'
 import Stores from './stores'
 import * as Starfire from './starfire.js'

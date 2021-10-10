@@ -9,7 +9,7 @@
   </head>
   <body class="min-h-screen text-base bg-gray-900" x-data>
     <header class="relative flex justify-between w-full p-4 text-gray-100 border-b border-gray-400 shadow-md" x-data>
-      <button class="p-2" @click="console.log('menu button')" :disabled="!$store.login.isLoggedIn" :class="!$store.login.isLoggedIn?'text-gray-500':''">
+      <button class="p-2" @click="console.log('menu button');history.pushState(null,'Operations','/operations')" :disabled="!$store.login.isLoggedIn" :class="!$store.login.isLoggedIn?'text-gray-500':''">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
         </svg>
@@ -92,10 +92,12 @@
       </login-card>
     </template>
     <template x-if="$store.login.isLoggedIn">
-      <main>
+      <main class="min-h-screen" x-data="ajax">
         <template x-route="">
-          <home-page class="flex flex-col w-full gap-y-8" x-ajax="'/pages/home'">
-          </home-page>
+          <home-page class="flex flex-col w-full gap-y-8" x-ajax="home"></home-page>
+        </template>
+        <template x-route="operations">
+          <operations-control class="flex flex-col w-full gap-y-8" x-ajax="operations"></operations-control>
         </template>
       </main>
     </template>

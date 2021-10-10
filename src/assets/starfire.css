@@ -738,6 +738,13 @@ floating-label label {
   position: relative;
 }
 
+.inset-0 {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
 .inset-x-8 {
   left: 2rem;
   right: 2rem;
@@ -753,6 +760,10 @@ floating-label label {
 
 .left-1\/2 {
   left: 50%;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .mx-auto {
@@ -786,6 +797,10 @@ floating-label label {
 
 .min-h-\[8rem\] {
   min-height: 8rem;
+}
+
+.min-h-\[3rem\] {
+  min-height: 3rem;
 }
 
 .w-full {
@@ -881,12 +896,25 @@ floating-label label {
   row-gap: 2rem;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.rounded-t-md {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
 }
 
 .border-b {
@@ -910,6 +938,16 @@ floating-label label {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+
+.bg-gray-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+}
+
+.\!bg-red-400 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgba(248, 113, 113, var(--tw-bg-opacity)) !important;
 }
 
 .bg-gradient-to-tr {
@@ -985,8 +1023,8 @@ floating-label label {
   line-height: 1.75rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
+.text-5xl {
+  font-size: 3rem;
   line-height: 1;
 }
 
@@ -995,12 +1033,21 @@ floating-label label {
   line-height: 1.75rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .font-semibold {
   font-weight: 600;
 }
 
 .tracking-wider {
   letter-spacing: 0.05em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
 }
 
 .text-gray-100 {
@@ -1042,5 +1089,12 @@ floating-label label {
 
 .disabled\:\!bg-gray-100\/50:disabled {
   background-color: rgba(243, 244, 246, 0.5) !important;
+}
+
+@media (min-width: 768px) {
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
 }
 
