@@ -799,6 +799,10 @@ floating-label label {
   min-height: 8rem;
 }
 
+.min-h-\[16rem\] {
+  min-height: 16rem;
+}
+
 .min-h-\[3rem\] {
   min-height: 3rem;
 }
@@ -1017,6 +1021,14 @@ floating-label label {
   padding-bottom: 2.5rem;
 }
 
+.pt-16 {
+  padding-top: 4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1046,12 +1058,12 @@ floating-label label {
   font-weight: 600;
 }
 
-.tracking-wider {
-  letter-spacing: 0.05em;
-}
-
 .tracking-wide {
   letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 .text-gray-100 {
