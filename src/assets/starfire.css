@@ -807,6 +807,14 @@ floating-label label {
   min-height: 3rem;
 }
 
+.min-h-\[12rem\] {
+  min-height: 12rem;
+}
+
+.min-h-\[4rem\] {
+  min-height: 4rem;
+}
+
 .w-full {
   width: 100%;
 }

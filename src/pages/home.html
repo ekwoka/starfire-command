@@ -2,6 +2,18 @@
     <h1 class="block text-5xl font-semibold tracking-wider text-transparent md:text-6xl bg-gradient-to-tr from-red-500 to-yellow-400 bg-clip-text">Welcome to Starfire Command</h1>
     <p class="block text-xl text-gray-100">Your Destination for Nightfire Operational Updates</p>
 </hero-space>
+<announcements-snippet class="flex flex-col px-4 gap-y-2 min-h-[8rem]" x-data="announcementsSnippet">
+    <h2 class="text-lg tracking-wide text-gray-100">Announcements</h2>
+    <template x-for="a in as" :key="a.postDate">
+        <announcement-card>
+            <h3 class="text-2xl">Title</h3>
+            <span>Author</span>
+            <p>Short Snippet</p>
+        </announcement-card>
+    </template>
+    <button x-text="`Announcements: ${totalAnnounce}`" @click="" x-show="totalAnnounce>=1"></button>
+    <h3 class="w-full text-center text-gray-100" x-show="totalAnnounce==0">There are no Announcements</h3>
+</announcements-snippet>
 <operations-snippet class="flex flex-col px-4 gap-y-2 min-h-[16rem]" x-data="operationsSnippet">
     <h2 class="text-lg tracking-wide text-gray-100">Upcoming Operations</h2>
     <h3 class="w-full text-center text-gray-100" x-show="totalOps==-1">Loading...</h3>
@@ -9,12 +21,12 @@
         <operation-card class="flex flex-col bg-gray-600 rounded-md shadow-md" :class="{'!bg-red-400':Date.now()>op.time}">
             <operation-header class="rounded-t-md min-h-[3rem] relative overflow-hidden p-4">
                 <h3 class="relative z-10 text-2xl" x-text="op.name"></h3>
+                <h4 class="relative z-10 text-lg" x-text="`Time: ${new Date(op.time).toUTCString()}`"></h4>
                 <img class="absolute inset-0 object-cover w-full" src="/assets/starfire.jpg" alt="">
             </operation-header>
             <operation-info class="flex flex-col p-4">
-                <p x-text="op.description"></p>
                 <h4 x-text="`Commanded by: ${op.operator.name}`"></h4>
-                <h4 x-text="`Time: ${new Date(op.time).toUTCString()}`"></h4>
+                <p x-text="op.description"></p>
             </operation-info>
         </operation-card>
     </template>
