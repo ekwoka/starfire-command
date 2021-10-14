@@ -1,43 +1,43 @@
 <hero-space class="flex flex-col max-w-screen-lg px-8 py-10 gap-y-4">
-    <h1 class="block text-5xl font-semibold tracking-wider text-transparent md:text-6xl bg-gradient-to-tr from-red-500 to-yellow-400 bg-clip-text">Welcome to Starfire Command</h1>
-    <p class="block text-xl text-gray-100">Your Destination for Nightfire Operational Updates</p>
+  <h1 class="block text-5xl font-semibold tracking-wider text-transparent md:text-6xl bg-gradient-to-tr from-red-800 to-yellow-700 bg-clip-text">Welcome to Starfire Command</h1>
+  <p class="block text-xl">Your Destination for Nightfire Operational Updates</p>
 </hero-space>
 <announcements-snippet class="flex flex-col px-4 gap-y-2 min-h-[8rem]" x-data="announcementsSnippet">
-    <h2 class="text-lg tracking-wide text-gray-100">Announcements</h2>
-    <template x-for="a in as" :key="a.postDate">
-        <announcement-card>
-            <h3 class="text-2xl">Title</h3>
-            <span>Author</span>
-            <p>Short Snippet</p>
-        </announcement-card>
-    </template>
-    <button x-text="`Announcements: ${totalAnnounce}`" @click="" x-show="totalAnnounce>=1"></button>
-    <h3 class="w-full text-center text-gray-100" x-show="totalAnnounce==0">There are no Announcements</h3>
+  <h2 class="text-lg tracking-wide">Announcements</h2>
+  <template x-for="a in as" :key="a.postDate">
+    <announcement-card>
+      <h3 class="text-2xl">Title</h3>
+      <span>Author</span>
+      <p>Short Snippet</p>
+    </announcement-card>
+  </template>
+  <button x-text="`Announcements: ${totalAnnounce}`" @click="" x-show="totalAnnounce>=1"></button>
+  <h3 class="w-full text-center" x-show="totalAnnounce==0">There are no Announcements</h3>
 </announcements-snippet>
 <operations-snippet class="flex flex-col px-4 gap-y-2 min-h-[16rem]" x-data="operationsSnippet">
-    <h2 class="text-lg tracking-wide text-gray-100">Upcoming Operations</h2>
-    <h3 class="w-full text-center text-gray-100" x-show="totalOps==-1">Loading...</h3>
-    <template x-for="op in operations" :key="op.loggedAt">
-        <operation-card class="flex flex-col bg-gray-600 rounded-md shadow-md" :class="{'!bg-red-400':Date.now()>op.time}">
-            <operation-header class="rounded-t-md min-h-[3rem] relative overflow-hidden p-4">
-                <h3 class="relative z-10 pb-2 text-3xl" x-text="op.name"></h3>
-                <h4 class="relative z-10 text-lg leading-6" x-text="getTime(op.time,'time')"></h4>
-                <h4 class="relative z-10 text-lg leading-6" x-text="getTime(op.time,'date')"></h4>
-                <img class="absolute inset-0 object-cover w-full shadow blur-sm" src="/assets/starfire.jpg" alt="">
-                <hours-left class="absolute flex flex-col items-center justify-center w-20 h-20 text-center -translate-y-1/2 rounded-full shadow inset-y-1/2 right-4 bg-gray-400/60">
-                    <span class="text-6xl leading-10" x-text="op.hoursUntil>=1?Math.floor(op.hoursUntil):op.hoursUntil>=0?Math.floor(op.hoursUntil*60):`You're Late`"></span>
-                    <span class="leading-4" x-text="op.hoursUntil>=2?'hours until':op.hoursUntil>=1?'hour until':op.hoursUntil>=0?'minutes until':''">hours left</span>
-                </hours-left>
-            </operation-header>
-            <operation-info class="flex flex-col p-4">
-                <div class="flex flex-row justify-between gap-y-2">
-                    <operation-commander x-text="`Commanded by: ${op.operator.name}`"></operation-commander>
-                    <operation-location x-text="`(${op.location.x},${op.location.y})`"></operation-location>
-                </div>
-                <p class="line-clamp-2" x-text="op.description"></p>
-            </operation-info>
-        </operation-card>
-    </template>
-    <button class="px-4 py-2 mt-4 text-gray-100 border-2 border-gray-100 rounded-md" x-text="`View All ${totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="totalOps>=1"></button>
-    <h3 class="w-full text-center text-gray-100" x-show="totalOps==0">There are no Operations Planned</h3>
+  <h2 class="text-lg tracking-wide">Upcoming Operations</h2>
+  <h3 class="w-full text-center" x-show="totalOps==-1">Loading...</h3>
+  <template x-for="op in operations" :key="op.loggedAt">
+    <operation-card class="flex flex-col bg-gray-100 rounded-md shadow-md" :class="{'!bg-red-400':Date.now()>op.time}">
+      <operation-header class="rounded-t-md min-h-[3rem] relative overflow-hidden p-4">
+        <h3 class="relative z-10 pb-2 text-3xl" x-text="op.name"></h3>
+        <h4 class="relative z-10 text-lg leading-6" x-text="getTime(op.time,'time')"></h4>
+        <h4 class="relative z-10 text-lg leading-6" x-text="getTime(op.time,'date')"></h4>
+        <img class="absolute inset-0 object-cover w-full shadow blur-sm" src="/assets/starfire.jpg" alt="" />
+        <hours-left class="absolute flex flex-col items-center justify-center w-20 h-20 text-center -translate-y-1/2 rounded-full shadow inset-y-1/2 right-4 bg-gray-400/60">
+          <span class="text-6xl leading-10" x-text="op.hoursUntil>=1?Math.floor(op.hoursUntil):op.hoursUntil>=0?Math.floor(op.hoursUntil*60):`You're Late`"></span>
+          <span class="leading-4" x-text="op.hoursUntil>=2?'hours until':op.hoursUntil>=1?'hour until':op.hoursUntil>=0?'minutes until':''">hours left</span>
+        </hours-left>
+      </operation-header>
+      <operation-info class="flex flex-col p-4">
+        <div class="flex flex-row justify-between gap-y-2">
+          <operation-commander x-text="`Commanded by: ${op.operator.name}`"></operation-commander>
+          <operation-location x-text="`(${op.location.x},${op.location.y})`"></operation-location>
+        </div>
+        <p class="line-clamp-2" x-text="op.description"></p>
+      </operation-info>
+    </operation-card>
+  </template>
+  <button class="px-4 py-2 mt-4 border-2 border-gray-900 rounded-md" x-text="`View All ${totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="totalOps>=1"></button>
+  <h3 class="w-full text-center" x-show="totalOps==0">There are no Operations Planned</h3>
 </operations-snippet>
