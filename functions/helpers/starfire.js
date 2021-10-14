@@ -45,9 +45,8 @@ export const users = {
 export const operations = {
   async get(type) {
     let operations = await cls.getItem("operations");
-    operations = operations.sort((a, b) => {
-      return a.time - b.time;
-    });
+    operations = cleanOperations(operations)
+    cls.setItem("operations", operations)
     return operations;
   },
   async add(op) {
@@ -60,3 +59,13 @@ export const operations = {
     return operations;
   }
 };
+
+function cleanOperations(ops){
+  ops = ops.filter(op=>{
+    return (2600000+op.time-Date.now())>=0?true:false
+  })
+  ops = ops.sort((a, b) => {
+    return a.time - b.time;
+  });
+  return ops
+}
