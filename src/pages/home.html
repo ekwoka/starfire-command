@@ -23,10 +23,14 @@
                 <h3 class="relative z-10 pb-2 text-3xl" x-text="op.name"></h3>
                 <h4 class="relative z-10 text-lg leading-6" x-text="getTime(op.time,'time')"></h4>
                 <h4 class="relative z-10 text-lg leading-6" x-text="getTime(op.time,'date')"></h4>
-                <img class="absolute inset-0 object-cover w-full" src="/assets/starfire.jpg" alt="">
+                <img class="absolute inset-0 object-cover w-full shadow blur-sm" src="/assets/starfire.jpg" alt="">
+                <hours-left class="absolute flex flex-col items-center justify-center w-20 h-20 text-center -translate-y-1/2 rounded-full shadow inset-y-1/2 right-4 bg-gray-400/60">
+                    <span class="text-6xl leading-10" x-text="op.hoursUntil>=1?Math.floor(op.hoursUntil):op.hoursUntil>=0?Math.floor(op.hoursUntil*60):`You're Late`"></span>
+                    <span class="leading-4" x-text="op.hoursUntil>=2?'hours until':op.hoursUntil>=1?'hour until':op.hoursUntil>=0?'minutes until':''">hours left</span>
+                </hours-left>
             </operation-header>
             <operation-info class="flex flex-col p-4">
-                <div class="flex flex-row justify-between">
+                <div class="flex flex-row justify-between gap-y-2">
                     <operation-commander x-text="`Commanded by: ${op.operator.name}`"></operation-commander>
                     <operation-location x-text="`(${op.location.x},${op.location.y})`"></operation-location>
                 </div>
@@ -34,6 +38,6 @@
             </operation-info>
         </operation-card>
     </template>
-    <button class="px-4 py-2 text-gray-100 border-2 border-gray-100 rounded-md" x-text="`View All ${totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="totalOps>=1"></button>
+    <button class="px-4 py-2 mt-4 text-gray-100 border-2 border-gray-100 rounded-md" x-text="`View All ${totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="totalOps>=1"></button>
     <h3 class="w-full text-center text-gray-100" x-show="totalOps==0">There are no Operations Planned</h3>
 </operations-snippet>
