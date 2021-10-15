@@ -21,7 +21,7 @@
     floating-label input[type="email"],
     floating-label input[type="search"],
     floating-label input[type="password"] {
-        @apply w-full h-10 px-2 text-gray-100 placeholder-transparent bg-transparent border-0 border-b-4 rounded focus:outline-none focus:ring-0 focus:border-green-600;
+        @apply w-full h-10 px-2 text-gray-900 placeholder-transparent bg-transparent border-0 border-b-4 border-gray-600 rounded focus:outline-none focus:ring-0 focus:border-green-600;
 
     }
     
@@ -29,18 +29,25 @@
     floating-label input[type="email"]:placeholder-shown ~ label,
     floating-label input[type="search"]:placeholder-shown ~ label,
     floating-label input[type="password"]:placeholder-shown ~ label {
-        @apply text-base text-gray-100 top-2;
+        @apply text-base text-gray-900 top-2;
+    }
+
+    floating-label input[type="text"]:not(:placeholder-shown),
+    floating-label input[type="email"]:not(:placeholder-shown),
+    floating-label input[type="search"]:not(:placeholder-shown),
+    floating-label input[type="password"]:not(:placeholder-shown) {
+        @apply border-green-600
     }
     
     floating-label input[type="text"]:focus ~ label,
     floating-label input[type="email"]:focus ~ label,
     floating-label input[type="search"]:focus ~ label,
     floating-label input[type="password"]:focus ~ label {
-        @apply text-sm text-gray-100 -top-5;
+        @apply text-sm text-gray-900 -top-5;
     }
     
     floating-label label {
-        @apply absolute w-full text-sm text-gray-100 transition-all pointer-events-none left-2 -top-5;
+        @apply absolute w-full text-sm text-gray-900 transition-all pointer-events-none left-2 -top-5;
     }
     
     floating-label ~ button {

@@ -1,5 +1,5 @@
 <hero-space class="flex flex-col max-w-screen-lg px-8 py-10 gap-y-4">
-  <h1 class="block text-5xl font-semibold tracking-wider text-transparent md:text-6xl bg-gradient-to-tr from-red-800 to-yellow-700 bg-clip-text">Welcome to Starfire Command</h1>
+  <h1 class="block text-5xl font-semibold tracking-wider text-transparent md:text-6xl bg-gradient-to-tr from-gray-900 to-red-800 bg-clip-text">Welcome to Starfire Command</h1>
   <p class="block text-xl">Your Destination for Nightfire Operational Updates</p>
 </hero-space>
 <announcements-snippet class="flex flex-col px-4 gap-y-2 min-h-[8rem]" x-data="announcementsSnippet">
@@ -25,7 +25,7 @@
         <h4 class="relative z-10 text-lg leading-6" x-text="getTime(op.time,'date')"></h4>
         <img class="absolute inset-0 object-cover w-full shadow blur-sm opacity-80" src="/assets/starfire.jpg" alt="" />
         <hours-left class="absolute flex flex-col items-center justify-center w-20 h-20 text-center -translate-y-1/2 rounded-full shadow inset-y-1/2 right-4 bg-gray-400/60">
-          <span class="text-6xl leading-10" x-text="op.hoursUntil>=1?Math.floor(op.hoursUntil):op.hoursUntil>=0?Math.floor(op.hoursUntil*60):`You're Late`"></span>
+          <span :class="op.hoursUntil>=0?'text-6xl leading-10':'text-3xl leading-6'" x-text="op.hoursUntil>=1?Math.floor(op.hoursUntil):op.hoursUntil>=0?Math.floor(op.hoursUntil*60):`You're Late`"></span>
           <span class="leading-4" x-text="op.hoursUntil>=2?'hours until':op.hoursUntil>=1?'hour until':op.hoursUntil>=0?'minutes until':''">hours left</span>
         </hours-left>
       </operation-header>
