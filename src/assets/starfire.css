@@ -644,7 +644,7 @@ floating-label {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-floating-label input[type="text"], floating-label input[type="email"], floating-label input[type="search"], floating-label input[type="password"] {
+floating-label input[type="text"], floating-label input[type="number"], floating-label input[type="email"], floating-label input[type="search"], floating-label input[type="password"], floating-label textarea {
   height: 2.5rem;
   width: 100%;
   border-radius: 0.25rem;
@@ -659,19 +659,19 @@ floating-label input[type="text"], floating-label input[type="email"], floating-
   color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 
-floating-label input[type="text"]::-moz-placeholder, floating-label input[type="email"]::-moz-placeholder, floating-label input[type="search"]::-moz-placeholder, floating-label input[type="password"]::-moz-placeholder {
+floating-label input[type="text"]::-moz-placeholder, floating-label input[type="number"]::-moz-placeholder, floating-label input[type="email"]::-moz-placeholder, floating-label input[type="search"]::-moz-placeholder, floating-label input[type="password"]::-moz-placeholder, floating-label textarea::-moz-placeholder {
   color: transparent;
 }
 
-floating-label input[type="text"]:-ms-input-placeholder, floating-label input[type="email"]:-ms-input-placeholder, floating-label input[type="search"]:-ms-input-placeholder, floating-label input[type="password"]:-ms-input-placeholder {
+floating-label input[type="text"]:-ms-input-placeholder, floating-label input[type="number"]:-ms-input-placeholder, floating-label input[type="email"]:-ms-input-placeholder, floating-label input[type="search"]:-ms-input-placeholder, floating-label input[type="password"]:-ms-input-placeholder, floating-label textarea:-ms-input-placeholder {
   color: transparent;
 }
 
-floating-label input[type="text"]::placeholder, floating-label input[type="email"]::placeholder, floating-label input[type="search"]::placeholder, floating-label input[type="password"]::placeholder {
+floating-label input[type="text"]::placeholder, floating-label input[type="number"]::placeholder, floating-label input[type="email"]::placeholder, floating-label input[type="search"]::placeholder, floating-label input[type="password"]::placeholder, floating-label textarea::placeholder {
   color: transparent;
 }
 
-floating-label input[type="text"]:focus, floating-label input[type="email"]:focus, floating-label input[type="search"]:focus, floating-label input[type="password"]:focus {
+floating-label input[type="text"]:focus, floating-label input[type="number"]:focus, floating-label input[type="email"]:focus, floating-label input[type="search"]:focus, floating-label input[type="password"]:focus, floating-label textarea:focus {
   --tw-border-opacity: 1;
   border-color: rgba(5, 150, 105, var(--tw-border-opacity));
   outline: 2px solid transparent;
@@ -681,7 +681,7 @@ floating-label input[type="text"]:focus, floating-label input[type="email"]:focu
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-floating-label input[type="text"]:-moz-placeholder-shown ~ label, floating-label input[type="email"]:-moz-placeholder-shown ~ label, floating-label input[type="search"]:-moz-placeholder-shown ~ label, floating-label input[type="password"]:-moz-placeholder-shown ~ label {
+floating-label input[type="text"]:-moz-placeholder-shown ~ label, floating-label input[type="number"]:-moz-placeholder-shown ~ label, floating-label input[type="email"]:-moz-placeholder-shown ~ label, floating-label input[type="search"]:-moz-placeholder-shown ~ label, floating-label input[type="password"]:-moz-placeholder-shown ~ label, floating-label textarea:-moz-placeholder-shown ~ label {
   top: 0.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -689,7 +689,7 @@ floating-label input[type="text"]:-moz-placeholder-shown ~ label, floating-label
   color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 
-floating-label input[type="text"]:-ms-input-placeholder ~ label, floating-label input[type="email"]:-ms-input-placeholder ~ label, floating-label input[type="search"]:-ms-input-placeholder ~ label, floating-label input[type="password"]:-ms-input-placeholder ~ label {
+floating-label input[type="text"]:-ms-input-placeholder ~ label, floating-label input[type="number"]:-ms-input-placeholder ~ label, floating-label input[type="email"]:-ms-input-placeholder ~ label, floating-label input[type="search"]:-ms-input-placeholder ~ label, floating-label input[type="password"]:-ms-input-placeholder ~ label, floating-label textarea:-ms-input-placeholder ~ label {
   top: 0.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -697,7 +697,7 @@ floating-label input[type="text"]:-ms-input-placeholder ~ label, floating-label 
   color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 
-floating-label input[type="text"]:placeholder-shown ~ label, floating-label input[type="email"]:placeholder-shown ~ label, floating-label input[type="search"]:placeholder-shown ~ label, floating-label input[type="password"]:placeholder-shown ~ label {
+floating-label input[type="text"]:placeholder-shown ~ label, floating-label input[type="number"]:placeholder-shown ~ label, floating-label input[type="email"]:placeholder-shown ~ label, floating-label input[type="search"]:placeholder-shown ~ label, floating-label input[type="password"]:placeholder-shown ~ label, floating-label textarea:placeholder-shown ~ label {
   top: 0.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -705,22 +705,22 @@ floating-label input[type="text"]:placeholder-shown ~ label, floating-label inpu
   color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 
-floating-label input[type="text"]:not(:-moz-placeholder-shown), floating-label input[type="email"]:not(:-moz-placeholder-shown), floating-label input[type="search"]:not(:-moz-placeholder-shown), floating-label input[type="password"]:not(:-moz-placeholder-shown) {
+floating-label input[type="text"]:not(:-moz-placeholder-shown), floating-label input[type="number"]:not(:-moz-placeholder-shown), floating-label input[type="email"]:not(:-moz-placeholder-shown), floating-label input[type="search"]:not(:-moz-placeholder-shown), floating-label input[type="password"]:not(:-moz-placeholder-shown), floating-label textarea:not(:-moz-placeholder-shown) {
   --tw-border-opacity: 1;
   border-color: rgba(5, 150, 105, var(--tw-border-opacity));
 }
 
-floating-label input[type="text"]:not(:-ms-input-placeholder), floating-label input[type="email"]:not(:-ms-input-placeholder), floating-label input[type="search"]:not(:-ms-input-placeholder), floating-label input[type="password"]:not(:-ms-input-placeholder) {
+floating-label input[type="text"]:not(:-ms-input-placeholder), floating-label input[type="number"]:not(:-ms-input-placeholder), floating-label input[type="email"]:not(:-ms-input-placeholder), floating-label input[type="search"]:not(:-ms-input-placeholder), floating-label input[type="password"]:not(:-ms-input-placeholder), floating-label textarea:not(:-ms-input-placeholder) {
   --tw-border-opacity: 1;
   border-color: rgba(5, 150, 105, var(--tw-border-opacity));
 }
 
-floating-label input[type="text"]:not(:placeholder-shown), floating-label input[type="email"]:not(:placeholder-shown), floating-label input[type="search"]:not(:placeholder-shown), floating-label input[type="password"]:not(:placeholder-shown) {
+floating-label input[type="text"]:not(:placeholder-shown), floating-label input[type="number"]:not(:placeholder-shown), floating-label input[type="email"]:not(:placeholder-shown), floating-label input[type="search"]:not(:placeholder-shown), floating-label input[type="password"]:not(:placeholder-shown), floating-label textarea:not(:placeholder-shown) {
   --tw-border-opacity: 1;
   border-color: rgba(5, 150, 105, var(--tw-border-opacity));
 }
 
-floating-label input[type="text"]:focus ~ label, floating-label input[type="email"]:focus ~ label, floating-label input[type="search"]:focus ~ label, floating-label input[type="password"]:focus ~ label {
+floating-label input[type="text"]:focus ~ label, floating-label input[type="number"]:focus ~ label, floating-label input[type="email"]:focus ~ label, floating-label input[type="search"]:focus ~ label, floating-label input[type="password"]:focus ~ label, floating-label textarea:focus ~ label {
   top: -1.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -811,6 +811,10 @@ floating-label label {
   margin-top: 1rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -833,6 +837,14 @@ floating-label label {
 
 .h-16 {
   height: 4rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-24 {
+  height: 6rem;
 }
 
 .min-h-screen {
@@ -869,6 +881,10 @@ floating-label label {
 
 .w-4\/6 {
   width: 66.666667%;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .max-w-md {
@@ -1086,6 +1102,10 @@ floating-label label {
   padding-bottom: 0.5rem;
 }
 
+.pr-4 {
+  padding-right: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1210,8 +1230,16 @@ floating-label label {
   --tw-bg-opacity: 0.8;
 }
 
+.disabled\:pointer-events-none:disabled {
+  pointer-events: none;
+}
+
 .disabled\:\!bg-gray-100\/50:disabled {
   background-color: rgba(243, 244, 246, 0.5) !important;
+}
+
+.disabled\:opacity-70:disabled {
+  opacity: 0.7;
 }
 
 @media (min-width: 768px) {

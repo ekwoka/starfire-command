@@ -18,31 +18,39 @@
     }
     
     floating-label input[type="text"],
+    floating-label input[type="number"],
     floating-label input[type="email"],
     floating-label input[type="search"],
-    floating-label input[type="password"] {
+    floating-label input[type="password"],
+    floating-label textarea {
         @apply w-full h-10 px-2 text-gray-900 placeholder-transparent bg-transparent border-0 border-b-4 border-gray-600 rounded focus:outline-none focus:ring-0 focus:border-green-600;
 
     }
     
     floating-label input[type="text"]:placeholder-shown ~ label,
+    floating-label input[type="number"]:placeholder-shown ~ label,
     floating-label input[type="email"]:placeholder-shown ~ label,
     floating-label input[type="search"]:placeholder-shown ~ label,
-    floating-label input[type="password"]:placeholder-shown ~ label {
+    floating-label input[type="password"]:placeholder-shown ~ label,
+    floating-label textarea:placeholder-shown ~ label {
         @apply text-base text-gray-900 top-2;
     }
 
     floating-label input[type="text"]:not(:placeholder-shown),
+    floating-label input[type="number"]:not(:placeholder-shown),
     floating-label input[type="email"]:not(:placeholder-shown),
     floating-label input[type="search"]:not(:placeholder-shown),
-    floating-label input[type="password"]:not(:placeholder-shown) {
-        @apply border-green-600
+    floating-label input[type="password"]:not(:placeholder-shown),
+    floating-label textarea:not(:placeholder-shown) {
+        @apply border-green-600;
     }
     
     floating-label input[type="text"]:focus ~ label,
+    floating-label input[type="number"]:focus ~ label,
     floating-label input[type="email"]:focus ~ label,
     floating-label input[type="search"]:focus ~ label,
-    floating-label input[type="password"]:focus ~ label {
+    floating-label input[type="password"]:focus ~ label,
+    floating-label textarea:focus ~ label {
         @apply text-sm text-gray-900 -top-5;
     }
     

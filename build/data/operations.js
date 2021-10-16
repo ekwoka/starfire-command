@@ -48,4 +48,25 @@ export default function (Alpine) {
       return Math.floor((time - Date.now()) / 3600000);
     }
   }));
+
+  Alpine.data('operationsBuilder',({} = {}) => ({
+    name: '',
+    time: 0,
+    commander: '',
+    location: {
+      x: '',
+      y: ''
+    },
+    description: '',
+    validateLocation(){
+      Object.entries(this.location).forEach(([key,value])=>{
+        this.location[key] = value.replace(/[^\d]+/g,'').slice(0,4)
+      })
+    },
+    init(){
+      Alpine.effect(()=>{
+        queueMicrotask(()=>this.validateLocation(this.location))
+      })
+    }
+  }))
 }

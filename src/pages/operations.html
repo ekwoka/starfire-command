@@ -1,27 +1,48 @@
 <operations-overview class="flex flex-col p-8 gap-y-4">
   <h2 class="text-5xl tracking-wider">Upcoming Operations</h2>
 </operations-overview>
-<operations-builder class="flex flex-col px-4 gap-y-2">
+<operations-builder class="flex flex-col px-4 gap-y-2" x-data="operationsBuilder">
   <operation-card class="flex flex-col bg-gray-100 rounded-md shadow-md">
     <operation-header class="rounded-t-md min-h-[3rem] relative overflow-hidden p-4">
       <floating-label class="relative z-10 w-4/6">
-        <input class="text-2xl" type="text" placeholder="Operation Name" name="opName" aria-label="Operation Name" />
+        <input class="text-2xl" type="text" placeholder="Operation Name" name="opName" aria-label="Operation Name" x-model="name"/>
         <label class="" for="opName">Operation Name</label>
       </floating-label>
-      <h4 class="relative z-10 text-lg leading-6">Time</h4>
-      <h4 class="relative z-10 text-lg leading-6">day</h4>
       <img class="absolute inset-0 object-cover w-full shadow blur-sm opacity-80" src="/assets/starfire.jpg" alt="" />
       <hours-left class="absolute flex flex-col items-center justify-center w-20 h-20 text-center -translate-y-1/2 rounded-full shadow inset-y-1/2 right-4 bg-gray-400/60">
         <span class="text-6xl leading-10">X</span>
         <span class="leading-4">hours left</span>
       </hours-left>
     </operation-header>
-    <operation-info class="flex flex-col p-4">
+    <operation-info class="flex flex-col p-4 gap-y-2">
       <div class="flex flex-row justify-between gap-y-2">
-        <operation-commander>Commanded By</operation-commander>
-        <operation-location>(420,6969)</operation-location>
+        <floating-label>
+          <input type="text" name="opCommand" placeholder="Operation Commander" aria-label="Operation Commander" x-model="commander"/>
+          <label for="opCommand">Commanded By</label>
+        </floating-label>
+        <operation-location class="flex">
+          <span class="mt-6">(</span>
+          <floating-label class="w-16">
+            <input class="h-8 text-center" type="text" name="locX" placeholder="X" aria-label="Location X" x-model="location.x" @keyup="validateLocation" inputmode="numeric" pattern="[0-9]*">
+            <label class="pr-4 text-center" for="locX">X</label>
+          </floating-label>
+          <span class="mt-6">,</span>
+          <floating-label class="w-16">
+            <input class="h-8 text-center" type="text" name="locY" placeholder="Y" aria-label="Location Y" x-model="location.y" @keyup="validateLocation" inputmode="numeric" pattern="[0-9]*">
+            <label class="pr-4 text-center" for="locY">Y</label>
+          </floating-label>
+          <span class="mt-6">)</span>
+        </operation-location>
       </div>
-      <p class="line-clamp-2">Operation Description</p>
+      <floating-label>
+        <textarea name="opDescription" x-model="description" class="h-24" rows=3 placeholder="Operation Description"></textarea>
+        <label for="opDescription">Operation Description</label>
+      </floating-label>
+      <time-selectors class="flex flex-row w-full gap-x-2">
+        
+
+      </time-selectors>
+      <button class="w-full px-4 py-2 border-2 border-gray-900 rounded disabled:opacity-70 disabled:pointer-events-none" :disabled=true>Add Operation</button>
     </operation-info>
   </operation-card>
 </operations-builder>
