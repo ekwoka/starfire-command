@@ -23,12 +23,12 @@
         <operation-location class="flex">
           <span class="mt-6">(</span>
           <floating-label class="w-16">
-            <input class="h-8 text-center" type="text" name="locX" placeholder="X" aria-label="Location X" x-model="location.x" @keyup="validateLocation" inputmode="numeric" pattern="[0-9]*">
+            <input class="h-8 text-center" type="text" name="locX" placeholder="X" aria-label="Location X" x-model="location.x" @keyup="validate.location" inputmode="numeric" pattern="[0-9]*">
             <label class="pr-4 text-center" for="locX">X</label>
           </floating-label>
           <span class="mt-6">,</span>
           <floating-label class="w-16">
-            <input class="h-8 text-center" type="text" name="locY" placeholder="Y" aria-label="Location Y" x-model="location.y" @keyup="validateLocation" inputmode="numeric" pattern="[0-9]*">
+            <input class="h-8 text-center" type="text" name="locY" placeholder="Y" aria-label="Location Y" x-model="location.y" @keyup="validate.location" inputmode="numeric" pattern="[0-9]*">
             <label class="pr-4 text-center" for="locY">Y</label>
           </floating-label>
           <span class="mt-6">)</span>
@@ -38,10 +38,21 @@
         <textarea name="opDescription" x-model="description" class="h-24" rows=3 placeholder="Operation Description"></textarea>
         <label for="opDescription">Operation Description</label>
       </floating-label>
-      <time-selectors class="flex flex-row w-full gap-x-2">
-        
-
+      <time-selectors class="flex flex-row justify-between w-3/4 mx-auto gap-x-2">
+        <floating-label>
+          <input type="number" placeholder="UTC time" name="opTime" aria-label="Operation Time" x-model="time.hour" @keyup="validate.hour" @change="validate.hour">
+          <label for="opTime">
+            UTC time
+          </label>
+        </floating-label>
+        <floating-label>
+          <input type="number" placeholder="Days from Now" name="opDay" aria-label="Operation Day" x-model="time.day" @keyup="validate.day" @change="validate.day">
+          <label for="opDay">
+            Days from Now
+          </label>
+        </floating-label>
       </time-selectors>
+      <time-display class="block" x-text="time.displayDate"></time-display>
       <button class="w-full px-4 py-2 border-2 border-gray-900 rounded disabled:opacity-70 disabled:pointer-events-none" :disabled=true>Add Operation</button>
     </operation-info>
   </operation-card>
