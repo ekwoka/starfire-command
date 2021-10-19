@@ -14,10 +14,10 @@
   <button x-text="`Announcements: ${totalAnnounce}`" @click="" x-show="totalAnnounce>=1"></button>
   <h3 class="w-full text-center" x-show="totalAnnounce==0">There are no Announcements</h3>
 </announcements-snippet>
-<operations-snippet class="flex flex-col px-4 gap-y-2 min-h-[16rem]" x-data="operationsSnippet">
+<operations-snippet class="flex flex-col px-4 gap-y-2 min-h-[16rem]" x-data="operationsList">
   <h2 class="text-lg tracking-wide">Upcoming Operations</h2>
-  <h3 class="w-full text-center" x-show="totalOps==-1">Loading...</h3>
-  <template x-for="op in operations" :key="op.loggedAt">
+  <h3 class="w-full text-center" x-show="$store.operations.totalOps==-1">Loading...</h3>
+  <template x-for="op in $store.operations.operations.slice(0,3)" :key="op.loggedAt">
     <operation-card class="flex flex-col bg-gray-100 rounded-md shadow-md" :class="{'!bg-red-400':Date.now()>op.time}">
       <operation-header class="rounded-t-md min-h-[3rem] relative overflow-hidden p-4">
         <h3 class="relative z-10 pb-2 text-3xl" x-text="op.name"></h3>
@@ -38,6 +38,6 @@
       </operation-info>
     </operation-card>
   </template>
-  <button class="px-4 py-2 mt-4 border-2 border-gray-900 rounded-md" x-text="`View All ${totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="totalOps>=1"></button>
-  <h3 class="w-full text-center" x-show="totalOps==0">There are no Operations Planned</h3>
+  <button class="px-4 py-2 mt-4 border-2 border-gray-900 rounded-md" x-text="`View All ${$store.operations.totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="$store.operations.totalOps>=1"></button>
+  <h3 class="w-full text-center" x-show="$store.operations.totalOps==0">There are no Operations Planned</h3>
 </operations-snippet>

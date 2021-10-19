@@ -887,10 +887,6 @@ floating-label label {
   width: 4rem;
 }
 
-.w-1\/2 {
-  width: 50%;
-}
-
 .w-3\/4 {
   width: 75%;
 }
@@ -901,6 +897,12 @@ floating-label label {
 
 .max-w-screen-lg {
   max-width: 1024px;
+}
+
+.max-w-max {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 
 .-translate-y-full {
@@ -1205,6 +1207,10 @@ floating-label label {
 
 .opacity-80 {
   opacity: 0.8;
+}
+
+.opacity-70 {
+  opacity: 0.7;
 }
 
 .shadow-md {

@@ -2,7 +2,7 @@
   <h2 class="text-5xl tracking-wider">Upcoming Operations</h2>
 </operations-overview>
 <operations-builder class="flex flex-col px-4 gap-y-2" x-data="operationsBuilder">
-  <operation-card class="flex flex-col bg-gray-100 rounded-md shadow-md">
+  <operation-card class="flex flex-col bg-gray-100 rounded-md shadow-md" :class="submitting&&'opacity-70 pointer-events-none'" x-show="!submitted">
     <operation-header class="rounded-t-md min-h-[3rem] relative overflow-hidden p-4">
       <floating-label class="relative z-10 w-4/6">
         <input class="text-2xl" type="text" placeholder="Operation Name" name="opName" aria-label="Operation Name" x-model="name"/>
@@ -10,8 +10,8 @@
       </floating-label>
       <img class="absolute inset-0 object-cover w-full shadow blur-sm opacity-80" src="/assets/starfire.jpg" alt="" />
       <hours-left class="absolute flex flex-col items-center justify-center w-20 h-20 text-center -translate-y-1/2 rounded-full shadow inset-y-1/2 right-4 bg-gray-400/60">
-        <span class="text-6xl leading-10">X</span>
-        <span class="leading-4">hours left</span>
+        <span :class="time.hoursUntil>=0?'text-6xl leading-10':'text-3xl leading-6'" x-text="time.hoursUntil>=1?Math.floor(time.hoursUntil):time.hoursUntil>=0?Math.floor(time.hoursUntil*60):`You're Late`"></span>
+        <span class="leading-4" x-text="time.hoursUntil>=2?'hours until':time.hoursUntil>=1?'hour until':time.hoursUntil>=0?'minutes until':''">hours left</span>
       </hours-left>
     </operation-header>
     <operation-info class="flex flex-col p-4 gap-y-2">
@@ -52,14 +52,14 @@
           </label>
         </floating-label>
       </time-selectors>
-      <time-display class="block" x-text="time.displayDate"></time-display>
-      <button class="w-full px-4 py-2 border-2 border-gray-900 rounded disabled:opacity-70 disabled:pointer-events-none" :disabled=true>Add Operation</button>
+      <time-display class="block mx-auto max-w-max" x-text="`Operation Time: ${time.displayDate}`"></time-display>
+      <button class="w-full px-4 py-2 border-2 border-gray-900 rounded disabled:opacity-70 disabled:pointer-events-none" :disabled="submitDisable" @click="submitOperation">Add Operation</button>
     </operation-info>
   </operation-card>
 </operations-builder>
 <operations-snippet class="flex flex-col px-4 gap-y-2 min-h-[16rem]" x-data="operationsList">
-  <h3 class="w-full text-center" x-show="totalOps==-1">Loading...</h3>
-  <template x-for="op in operations" :key="op.loggedAt">
+  <h3 class="w-full text-center" x-show="$store.operations.totalOps==-1">Loading...</h3>
+  <template x-for="op in $store.operations.operations" :key="op.loggedAt">
     <operation-card class="flex flex-col bg-gray-100 rounded-md shadow-md" :class="{'!bg-red-400':Date.now()>op.time}">
       <operation-header class="rounded-t-md min-h-[3rem] relative overflow-hidden p-4">
         <h3 class="relative z-10 pb-2 text-3xl" x-text="op.name"></h3>
@@ -80,6 +80,6 @@
       </operation-info>
     </operation-card>
   </template>
-  <button class="px-4 py-2 mt-4 border-2 border-gray-900 rounded-md" x-text="`View All ${totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="totalOps>=1"></button>
-  <h3 class="w-full text-center" x-show="totalOps==0">There are no Operations Planned</h3>
+  <button class="px-4 py-2 mt-4 border-2 border-gray-900 rounded-md" x-text="`View All ${$store.operations.totalOps} Operations`" @click="history.pushState(null,'Operations','/operations')" x-show="$store.operations.totalOps>=1"></button>
+  <h3 class="w-full text-center" x-show="$store.operations.totalOps==0">There are no Operations Planned</h3>
 </operations-snippet>

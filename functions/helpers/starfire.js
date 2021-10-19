@@ -52,9 +52,7 @@ export const operations = {
   async add(op) {
     let operations = await cls.getItem("operations");
     operations.push(op);
-    operations = operations.sort((a, b) => {
-      return a.time - b.time;
-    });
+    operations = cleanOperations(operations)
     await cls.setItem("operations", operations);
     return operations;
   }
