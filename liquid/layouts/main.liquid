@@ -1,0 +1,20 @@
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Starfire Dashboard</title>
+      <link rel="stylesheet" href="/assets/starfire.css" />
+      <script src="/assets/starfire.min.js" defer></script>
+    </head>
+    <body class="min-h-screen text-base text-gray-900 bg-gray-200" x-data>
+      {% render 'header' %}
+      {% render 'login-card' %}
+      <template x-if="$store.login.isLoggedIn">
+        <main class="max-w-screen-lg min-h-screen mx-auto" x-data="ajax">
+          {% block main %}{% endblock %}
+        </main>
+      </template>
+      {% render 'footer' %}
+    </body>
+  </html>

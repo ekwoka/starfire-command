@@ -1,0 +1,13 @@
+{% layout 'main' %}
+{% block main %}
+<template x-route="">
+    <home-page class="flex flex-col w-full gap-y-8" x-ajax="home">
+      <loading-block class="block w-full pt-16 tracking-wide text-center"> Loading Dashboard... </loading-block>
+    </home-page>
+  </template>
+  <template x-route="operations">
+    <operations-control class="flex flex-col w-full gap-y-8" x-ajax="operations">
+      <loading-block class="block w-full pt-16 tracking-wide text-center"> Loading Operations... </loading-block>
+    </operations-control>
+  </template>
+  {% endblock %}
