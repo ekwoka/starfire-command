@@ -1,5 +1,5 @@
 <header class="relative flex justify-between w-full p-4 border-b border-gray-300 shadow-md" x-data>
-    <button class="p-2" @click="history.pushState(null,'Starfire',window._x_route[0]=='operations'?'/':'/operations')" :disabled="!$store.login.isLoggedIn" :class="!$store.login.isLoggedIn?'text-gray-900/50':''">
+    <button class="p-2" @click="window.location.pathname=='/'?window.location='/operations':window.location='/'" :disabled="!$store.login.isLoggedIn" :class="!$store.login.isLoggedIn?'text-gray-900/50':''">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
       </svg>

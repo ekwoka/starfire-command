@@ -7,5 +7,13 @@ const engine = new Liquid({
     partials: 'liquid/snippets'
 })
 
-const output = fs.createWriteStream(`src/test.html`)
-engine.renderFileToNodeStream('index',{thing: 'liquid'}).then(stream=>stream.pipe(output))
+fs.readdir('liquid/pages',(err,files)=>{
+    console.time('Liquid Rendered')
+    files.forEach(f=>{
+        console.log(f)
+        f = f.replace('.liquid','')
+        const output = fs.createWriteStream(`src/${f}.html`)
+        engine.renderFileToNodeStream(f).then(stream=>stream.pipe(output))
+    })
+    console.timeEnd('Liquid Rendered')
+})

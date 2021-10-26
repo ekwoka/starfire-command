@@ -11,12 +11,12 @@ export default function (Alpine) {
       };
       let ops = await Starfire.api('operations', data);
       if (ops.error) return console.error(ops.error);
-      this.updateList(ops)
+      this.updateList(ops);
     },
-    updateList(ops){
-        this.totalOps = ops.length;
-        this.operations = ops
-        this.operations.forEach((op) => (op.hoursUntil = (op.time - Date.now()) / 3600000));
+    updateList(ops) {
+      this.totalOps = ops.length;
+      this.operations = ops;
+      this.operations.forEach((op) => (op.hoursUntil = (op.time - Date.now()) / 3600000));
     }
   });
 }

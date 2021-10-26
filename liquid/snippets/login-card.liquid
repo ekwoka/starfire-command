@@ -1,6 +1,6 @@
 <template x-if="!$store.login.isLoggedIn">
     <login-card :class="{'pointer-events-none opacity-80':$store.login.loggingIn,'min-h-[8rem]':false}" class="fixed flex flex-col justify-end max-w-md p-8 mx-auto -translate-y-full rounded-md shadow-lg inset-x-8 bg-gray-700 gap-y-2 top-1/2 min-h-[8rem]" x-data="loginCard">
-        <img alt="" class="absolute top-0 object-cover w-20 h-20 p-1 -translate-x-1/2 -translate-y-1/2 bg-gray-200 rounded-full shadow-lg left-1/2" src="/assets/starfire.jpg"/>
+        <img alt="" class="absolute top-0 object-cover w-20 h-20 p-1 -translate-x-1/2 -translate-y-1/2 bg-gray-200 rounded-full shadow-lg left-1/2" loading="lazy" src="/assets/starfire.jpg"/>
         <button :disabled="$store.login.loggingIn" @click="submit" class="px-4 py-2 text-gray-700 bg-gray-100 rounded hover:bg-opacity-80 disabled:!bg-gray-100/50 flex flex-row gap-x-2 items-center justify-center" disabled>
             <svg :class="{'animate-spin':$store.login.loggingIn}" class="w-10 h-10" fill="none" height="55" viewbox="0 0 71 55" width="71" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0)">
