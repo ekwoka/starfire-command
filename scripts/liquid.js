@@ -10,7 +10,6 @@ const engine = new Liquid({
 fs.readdir('liquid/pages',(err,files)=>{
     console.time('Liquid Rendered')
     files.forEach(f=>{
-        console.log(f)
         f = f.replace('.liquid','')
         const output = fs.createWriteStream(`src/${f}.html`)
         engine.renderFileToNodeStream(f).then(stream=>stream.pipe(output))
