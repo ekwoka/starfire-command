@@ -4,7 +4,7 @@ const engine = new Liquid({
     extname: '.liquid',
     root: 'liquid/pages',
     layouts: 'liquid/layouts',
-    partials: 'liquid/snippets'
+    partials: ['liquid/snippets','liquid/icons']
 })
 
 fs.readdir('liquid/pages',(err,files)=>{
