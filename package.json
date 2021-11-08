@@ -12,23 +12,25 @@
     "watch:css": "tailwindcss -i ./build/tailwind.pre.css -o ./src/assets/starfire.css --jit -w --config ./tailwind.config.js",
     "watch:js": "esbuild ./build/build.js --outfile=./src/assets/starfire.min.js --platform=browser --target=es2017 --define:ALPINE_VERSION='\"Starfire custom\"' --bundle --watch",
     "watch:liquid": "nodemon --watch liquid -e liquid scripts/liquid.js",
-    "watch:netlify": "netlify dev"
+    "watch:netlify": "netlify dev",
+    "postinstall": "npm run build",
+    "update": "ncu -u && rm -rf node_modules && npm i && npm run build && git add . && git commit -m ':arrow_up:' && npm version patch"
   },
   "author": "Eric Kwoka",
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
-    "esbuild": "^0.13.11",
-    "liquidjs": "^9.28.3",
+    "esbuild": "^0.13.12",
+    "liquidjs": "^9.28.5",
     "nodemon": "^2.0.14",
     "npm-run-all": "^4.1.5",
     "tailwindcss": "^2.2.19"
   },
   "dependencies": {
-    "@alpinejs/collapse": "^3.4.2",
-    "@alpinejs/intersect": "^3.4.2",
-    "alpinejs": "^3.4.2",
+    "@alpinejs/collapse": "^3.5.0",
+    "@alpinejs/intersect": "^3.5.0",
+    "alpinejs": "^3.5.0",
     "cloud-local-storage": "^0.0.13",
     "dotenv": "^10.0.0",
     "node-fetch": "^3.0.0"
